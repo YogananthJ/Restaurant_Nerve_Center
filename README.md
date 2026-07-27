@@ -1,4 +1,3 @@
-@@ -1,90 +1,49 @@
 # Restaurant Nerve Center
 
 ## Team Name
