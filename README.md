@@ -44,6 +44,7 @@ Beta
 
 ---
 
+
 ## 🧭 Overview
 
 Restaurants lose money in the gaps: an 86'd item still on the menu, a ticket sitting too long on the pass, a reservation that never got seated, a manager staring at yesterday's spreadsheet instead of tonight's floor.
@@ -109,6 +110,306 @@ Guest scans QR
 | **Ops Copilot** | Managers shouldn't have to query a database mid-service. Ask in plain English, get a grounded answer from a live snapshot. |
 | **Predictive Analytics** | Staffing and prep decisions are made *before* the rush, not during it. Forecasts next-hour revenue, kitchen load, and queue. |
 | **Health Score** | A single 0–100 number turns dozens of signals into an at-a-glance state of the restaurant, with per-signal contributions so it's never a black box. |
+| **Recommendations** | Guests order faster and spend more when the menu meets them where they are — time of day, dietary needs, past orders, trending items. |
+| **Incident Detection** | Problems (stale tickets, low menu coverage, long waits) are surfaced with root cause and business impact before a guest complains. |
+| **Shift Brief** | End-of-shift context transfer is where information dies. The AI writes a Numbers / Wins / Watch-outs handoff automatically. |
+| **Restaurant Memory** | A queryable timeline of the service — what happened, when, and why — so post-mortems take minutes, not meetings. |
+| **Digital Twin** | Test decisions ("close two tables", "86 the risotto", "add a cook") against a live simulation before committing them to the floor. |
+| **Risk Radar** | Probability-scored predictions with ETA and suggested intervention — the difference between reacting and preventing. |
+| **Autopilot** | Continuously watches the floor and proposes ranked, explainable actions. Nothing runs without a human tap. |
+
+---
+
+## 🏗 Architecture
+
+```text
+┌─────────────────────────────────────────────────────────┐
+│  React 19 + TanStack Start (SSR, file-based routing)    │  Frontend
+└──────────────┬──────────────────────────┬───────────────┘
+               │ server functions         │ realtime (WS)
+               ▼                          ▼
+┌───────────────────────────┐   ┌────────────────────────┐
+│  TanStack Server Fns      │   │  Realtime Engine        │
+│  (typed RPC, edge worker) │   │  (Postgres → WS fanout) │
+└──────────┬────────────────┘   └────────────┬───────────┘
+           │                                 │
+           ▼                                 ▼
+┌─────────────────────────────────────────────────────────┐
+│  Postgres + RLS + SECURITY DEFINER RPCs                 │  Data
+│  Auth (email + Google OAuth, JWT claims)                │
+└──────────────┬──────────────────────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────────────────────────┐
+│  AI Gateway → Gemini 2.5 Flash (JSON-mode reasoning)    │  Intelligence
+└─────────────────────────────────────────────────────────┘
+```
+
+- **Frontend** renders SSR from the edge and hydrates with React 19.
+- **Server functions** enforce auth via middleware and call the DB with the user's JWT so RLS applies.
+- **Realtime** streams row changes directly to subscribed clients.
+- **AI layer** is invoked from server functions with a curated snapshot — never raw user input.
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Choice |
+|---|---|
+| Frontend | React 19, TanStack Start, TanStack Router, TanStack Query |
+| Styling | Tailwind CSS v4, shadcn/ui, OKLCH design tokens |
+| Backend | TanStack server functions (edge worker) |
+| Database | Postgres (Lovable Cloud / Supabase) |
+| Auth | Supabase Auth (Email + Google OAuth), JWT claims, RBAC via `user_roles` |
+| Realtime | Supabase Realtime (Postgres logical replication → WebSockets) |
+| AI | Lovable AI Gateway · Google Gemini 2.5 Flash (JSON mode) |
+| Charts | Recharts |
+| PDF / QR | jsPDF, qrcode.react |
+| Deployment | Edge runtime (Cloudflare Workers) via Lovable |
+
+---
+
+## 📦 Core Modules
+
+| Module | Purpose | Main Features | Users |
+|---|---|---|---|
+| **Landing** | Convert visitors, showcase product | Live floor mockup, KDS preview, AI preview, session-aware CTAs | Everyone |
+| **Dashboard** | Live floor control | Table map, orders, menu 86, KPIs, close-out, reservations panel | Manager |
+| **Kitchen Display** | Ticket workflow | 3-stage board, one-tap advance, auto table sync, KPI overlay | Kitchen |
+| **Host Panel** | Door + waitlist + arrivals | Walk-in queue, party-size suggestions, one-tap seat, reservation check-in | Host |
+| **Reservations** | Public booking | Datetime + party size, capacity check, instant confirmation code | Guest |
+| **Reports** | Sales intelligence | Weekly/monthly/yearly, product mix, seasonal, CSV export | Manager |
+| **Autopilot** | AI operating system | Health score, action cards, risk radar, digital twin, emergency mode | Manager |
+| **Intel Center** | Live analytics + AI feed | Health score with reasons, incidents, replay, guest sentiment | Manager |
+| **Ops Copilot** | Chat + shift brief | Grounded Q&A, 24h analytics, AI handoff | Manager |
+| **Menu Manager** | Full menu CRUD | Categories, dietary tags, 86-toggle, search | Manager |
+| **QR Ordering** | Guest menu + cart | Realtime menu, dietary filters, favorites, upsells | Guest |
+| **Guest Tracking** | Live order status | 4-stage tracker, post-meal rating + comment | Guest |
+| **Billing** | Revenue hub | Split / merge orders, coupons, payments, PDF receipts | Manager |
+
+---
+
+## ⚡ Realtime Features
+
+| Stream | What syncs live |
+|---|---|
+| Orders | Placement, stage advance, close-out |
+| Kitchen | Ticket state across every KDS device |
+| Menu Availability | 86 toggles propagate to guest menus instantly |
+| Tables | Status changes (open / seated / cleaning) |
+| Reservations | Booking, confirmation, seating, audit log |
+| Waitlist | Party added, notified, seated |
+| Feedback | New guest ratings + comments |
+| Analytics | Auto-refresh on any qualifying event |
+
+---
+
+## 🔒 Security
+
+- **RBAC** via `user_roles` table + `has_role()` security-definer function — never stored on profile.
+- **Row Level Security** enabled on every public table; policies gated by role.
+- **Guest Token Access** — no anon reads on orders/tables. Guests hit `resolve_table_by_qr` and `get_guest_order` RPCs that validate access tokens server-side.
+- **Input Validation** — Zod on every server function; capped quantities/prices; freshness checks on public inserts.
+- **Secure RPCs** — SECURITY DEFINER with pinned `search_path`; EXECUTE revoked from anon on internal functions.
+- **Audit Logs** — `reservation_events` records every create/update/delete with actor + diff.
+- **PII Protection** — auth debug log masks emails and stores a stable short hash for correlation without exposing addresses.
+
+---
+
+## 📈 Scalability
+
+| Scale | How it works |
+|---|---|
+| **Single restaurant** | Single tenant row; edge-rendered SSR handles all traffic with zero cold start. |
+| **Multiple branches** | Restaurants are first-class rows; every domain table is `restaurant_id`-scoped and RLS-partitioned. Add a location by inserting a row. |
+| **Franchise chains** | Roles compose vertically (chain admin → region manager → store manager); analytics roll up via SQL views without schema changes. |
+
+Realtime fanout is per-channel, so adding branches doesn't multiply subscription cost linearly on any single client.
+
+---
+
+## 💡 Innovation
+
+- **AI-first, not AI-bolted-on** — the AI reasons over a curated live snapshot on every meaningful change, not from a chat prompt in isolation.
+- **Explainable Health Score** — every point of the 0–100 score traces back to a signal contribution. No black-box vibes.
+- **Digital Twin Simulator** — what-if the floor before you commit. Managers get to *rehearse* decisions.
+- **Autopilot with human-in-the-loop** — proposes, never executes. Confidence + estimated impact on every card.
+- **Live Intelligence, not dashboards** — the Intel Center reacts to the floor, not to a page refresh.
+- **Restaurant Memory** — the day the restaurant lived, as a queryable timeline.
+
+---
+
+## 📁 Folder Structure
+
+```text
+occupancy/
+├── src/
+│   ├── routes/                    # File-based routing (TanStack)
+│   │   ├── __root.tsx             # App shell + global auth listener
+│   │   ├── index.tsx              # Landing
+│   │   ├── auth.tsx               # Sign in / up + Google OAuth
+│   │   ├── book.tsx               # Public reservations
+│   │   ├── health.tsx             # System health probe
+│   │   ├── _authenticated/       # Staff-only subtree
+│   │   │   ├── dashboard.tsx
+│   │   │   ├── kds.tsx
+│   │   │   ├── host.tsx
+│   │   │   ├── menu.tsx
+│   │   │   ├── tables.tsx
+│   │   │   ├── ops.tsx
+│   │   │   ├── intel.tsx
+│   │   │   ├── autopilot.tsx
+│   │   │   ├── reports.tsx
+│   │   │   └── billing.tsx
+│   │   └── t/                     # Guest QR flow
+│   │       ├── $token.tsx
+│   │       └── $token.order.$orderId.tsx
+│   ├── lib/                       # Server functions + utilities
+│   │   ├── ai-ops.functions.ts
+│   │   ├── intel.functions.ts
+│   │   ├── autopilot.functions.ts
+│   │   ├── auth-log.ts
+│   │   ├── money.ts
+│   │   └── receipt.ts
+│   ├── components/                # UI + feature components
+│   ├── hooks/                     # useAuth, useMobile, ...
+│   ├── integrations/supabase/     # Generated client + middleware
+│   └── styles.css                 # Tailwind v4 + design tokens
+├── supabase/                      # Migrations + config
+├── tests/e2e/                     # Playwright suites
+└── README.md
+```
+
+---
+
+## 🚀 Installation
+
+```bash
+# 1. Clone
+git clone <repo-url> occupancy && cd occupancy
+
+# 2. Install
+bun install       # or: npm install
+
+# 3. Configure environment
+cp .env.example .env
+# fill in the values below
+
+# 4. Run
+bun run dev
+```
+
+---
+
+## 🔑 Environment Variables
+
+```dotenv
+# Public (safe in the browser)
+VITE_SUPABASE_URL="https://<project>.supabase.co"
+VITE_SUPABASE_PUBLISHABLE_KEY="sb_publishable_..."
+VITE_SUPABASE_PROJECT_ID="<project-id>"
+
+# Server-only
+SUPABASE_URL="https://<project>.supabase.co"
+SUPABASE_PUBLISHABLE_KEY="sb_publishable_..."
+SUPABASE_PROJECT_ID="<project-id>"
+
+# AI Gateway (server-only)
+LOVABLE_API_KEY="lov_..."
+```
+
+---
+
+## 🧪 Running Locally
+
+```bash
+bun run dev          # start dev server on :8080
+bun run build        # production build
+bun run typecheck    # tsgo
+bunx vitest run      # unit tests
+python tests/e2e/auth_crosstab_all_routes.py   # e2e smoke
+```
+
+---
+
+## ☁️ Deployment
+
+Occupancy deploys to an edge runtime (Cloudflare Workers) via Lovable's hosting:
+
+1. Push to the connected repository.
+2. The platform builds with Vite and bundles server functions for the Worker.
+3. Environment variables are injected server-side; public vars are inlined at build.
+4. Realtime and Auth are served by the managed Postgres/Supabase project.
+
+Stable URLs:
+- Production: `https://rhythm-restaurant.lovable.app`
+- Preview: automatic per-branch preview URL
+
+---
+
+## 🖼 Screenshots
+
+| Surface | Preview |
+|---|---|
+| Landing Page | _[screenshot placeholder]_ |
+| Manager Dashboard | _[screenshot placeholder]_ |
+| Kitchen Display | _[screenshot placeholder]_ |
+| Reservations | _[screenshot placeholder]_ |
+| Intel Center | _[screenshot placeholder]_ |
+| Autopilot | _[screenshot placeholder]_ |
+| Reports | _[screenshot placeholder]_ |
+| QR Ordering | _[screenshot placeholder]_ |
+
+---
+
+## 🗺 Future Roadmap
+
+- 🎙 **Voice Ordering** — guest and staff hands-free via Web Speech + LLM intent parsing
+- 📦 **Inventory Forecasting** — depletion prediction tied to menu availability
+- 🏢 **Multi-Branch Analytics** — chain-level rollups and cross-store benchmarks
+- 📈 **Demand Forecasting** — hour-by-hour cover predictions for staffing
+- 📱 **Native Mobile Apps** — dedicated iOS/Android for host and kitchen
+- 💳 **POS Integrations** — Square, Toast, Stripe Terminal
+- 🚚 **Supplier Automation** — auto-reorder from usage patterns
+- 🌡 **IoT Kitchen Sensors** — line temperature + prep-station telemetry into the Health Score
+
+---
+
+## 👥 Team
+
+| Member | Responsibility |
+|---|---|
+| _Team Lead_ | Product direction, architecture, AI systems |
+| _Frontend_ | UI, realtime UX, design system |
+| _Backend_ | Database, RLS, RPCs, security |
+| _AI / Data_ | Prompting, Intel Center, Autopilot |
+
+---
+
+## 🎬 Demo
+
+- **Live Demo:** https://rhythm-restaurant.lovable.app
+- **GitHub Repository:** _add link_
+- **Presentation:** _add link_
+
+---
+
+## 🏆 Why This Project Stands Out
+
+**Real-world impact.** Occupancy targets the operational dead zones every restaurant lives with — stale tickets, missed reservations, blind staffing, spreadsheet post-mortems — and replaces them with a single live surface.
+
+**Technical complexity.** Edge-rendered SSR with TanStack Start, JWT-authenticated typed RPCs, row-level-secure Postgres, WebSocket realtime across every domain table, and a JSON-mode LLM pipeline that operates on curated live snapshots rather than raw prompts.
+
+**AI innovation.** Not a chatbot glued to a dashboard. The AI is a *reasoning layer* with explainable scoring, a digital twin, a risk radar, and an autopilot that proposes ranked, human-approved actions — with confidence and estimated impact on every card.
+
+**User experience.** Every persona — guest, cook, host, manager — has a purpose-built surface. Guests scan and order in seconds. Cooks tap tickets. Managers see one number that means something, backed by traceable reasons.
+
+**Scalability.** Multi-tenant by construction. A single migration turns one restaurant into a chain.
+
+**Business value.** Faster tables, fewer 86'd surprises, higher average tickets from AI upsells, fewer no-shows from confirmed reservations, and a manager who spends the shift *on the floor* — not in a spreadsheet.
+
+Occupancy isn't a POS. It's the operating system restaurants have been missing.
+black box. |
 | **Recommendations** | Guests order faster and spend more when the menu meets them where they are — time of day, dietary needs, past orders, trending items. |
 | **Incident Detection** | Problems (stale tickets, low menu coverage, long waits) are surfaced with root cause and business impact before a guest complains. |
 | **Shift Brief** | End-of-shift context transfer is where information dies. The AI writes a Numbers / Wins / Watch-outs handoff automatically. |
