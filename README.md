@@ -1,6 +1,46 @@
-# Occupancy
-
+# Restaurant Nerve Center
 > The AI-powered nervous system for modern restaurants — from the guest's first scan to the manager's last report.
+
+## Team Name
+Zoriks
+
+## Team Leader
+Yogananth J
+
+## Problem Statement
+Restaurant Nerve Center – AI-Powered Smart Restaurant Management System
+
+## Project Overview
+Restaurant Nerve Center is an AI-powered Smart Restaurant Management System that digitizes restaurant operations through QR ordering, reservations, kitchen management, billing, analytics, and AI-powered decision support.
+
+## Features
+- QR Ordering
+- Smart Reservations
+- Kitchen Display System
+- AI Restaurant Copilot
+- Personalized Recommendations
+- Analytics Dashboard
+- Billing & Order Management
+- Reports & Insights
+
+## Technology Stack
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- PostgreSQL
+
+## Team Roles
+Yogananth J – Team Lead, Full-Stack Development, AI Integration, UI/UX
+
+## Deployment
+[<Deployment URL>](https://rhythm-restaurant.lovable.app/)
+
+## GitHub Repository
+[<Repository URL>](https://github.com/YogananthJ/Restaurant_Nerve_Center)
+
+## Status
+Beta
 
 ---
 
