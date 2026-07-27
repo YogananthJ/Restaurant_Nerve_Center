@@ -33,13 +33,13 @@ Restaurant Nerve Center is an AI-powered Smart Restaurant Management System that
 Yogananth J – Team Lead, Full-Stack Development, AI Integration, UI/UX
 
 ## Deployment
-<Deployment URL>
+[<Deployment URL>](https://rhythm-restaurant.lovable.app/)
 
 ## GitHub Repository
-<Repository URL>
+[<Repository URL>](https://github.com/YogananthJ/Restaurant_Nerve_Center)
 
 ## Status
-Production Ready
+Beta
 
 VibeAthon 6.0 build — a live "restaurant nervous system" that keeps the kitchen, floor, and every guest in perfect sync.
 
