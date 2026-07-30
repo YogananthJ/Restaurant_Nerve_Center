@@ -1,370 +1,1129 @@
-# Occupancy
+<div align="center">
 
-> The AI-powered nervous system for modern restaurants — from the guest's first scan to the manager's last report.
+<img src="assets/logo.png" alt="Occupancy Logo" width="180"/>
 
----
+# 🍽️ Occupancy
 
-## 🧭 Overview
+### The AI-powered nervous system for modern restaurants — from the guest's first scan to the manager's last report.
 
-Restaurants lose money in the gaps: an 86'd item still on the menu, a ticket sitting too long on the pass, a reservation that never got seated, a manager staring at yesterday's spreadsheet instead of tonight's floor.
+<p align="center">
 
-**Occupancy** closes those gaps. It's a single, realtime operating system that connects the guest at the table, the cook on the line, the host at the door, and the manager on the floor — with an AI layer that watches everything and proposes moves before problems escalate.
+<img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white"/>
+<img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/TailwindCSS-v4-06B6D4?logo=tailwindcss&logoColor=white"/>
+<img src="https://img.shields.io/badge/Supabase-Backend-3ECF8E?logo=supabase&logoColor=white"/>
+<img src="https://img.shields.io/badge/PostgreSQL-Database-336791?logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/Gemini-AI-4285F4"/>
+<img src="https://img.shields.io/badge/Vibeathon-6.0-orange"/>
+<img src="https://img.shields.io/badge/Status-Beta-yellow"/>
 
-Unlike traditional POS + KDS bundles that only *record* what happened, Occupancy *reasons* about what is happening and what will happen next. Every surface is live, every decision is explainable, and every action is one tap away.
-
----
-
-## ✨ Key Features
-
-### 🍽 Guest Experience
-Guests scan a table QR, land on a live menu that reflects real-time availability, filter by dietary needs, add favorites, receive personalized "Chef's Picks" based on time of day and order history, and place an order without downloading anything. After the meal they rate the experience — feedback flows straight into the manager's sentiment stream.
-
-### 👨‍🍳 Kitchen Operations
-A tap-optimized Kitchen Display groups tickets into *placed → preparing → ready*. Advancing a ticket automatically updates the guest tracker and the table state. Median time-to-ready, overdue tickets, and hourly throughput surface as KPIs so bottlenecks are visible the moment they form.
-
-### 👨‍💼 Restaurant Management
-The manager dashboard is the live floor: table status, open tickets, revenue, menu 86'ing, and one-tap close-out — all synchronized across every device. Menu, categories, tables, QR sheets, and staff roles are managed inline.
-
-### 🤖 AI Intelligence
-An always-on Copilot answers plain-English questions ("who's the slowest table right now?"), generates shift briefs, detects incidents, and proposes ranked actions with confidence scores and estimated impact.
-
-### 📊 Analytics & Reporting
-Weekly / monthly / yearly revenue, product-mix breakdowns, seasonal best-sellers, and one-click CSV exports for accounting.
-
-### 📅 Reservations
-Public booking page with capacity checks, host stand queue, arrivals panel, auto-best-fit seating, and a full audit log of every status change.
-
-### 📱 QR Ordering
-Every table gets a printable QR tent. Scanning resolves through a token-validating RPC — no table IDs leak, no login required.
-
-### 🔒 Security
-Role-based access, row-level security on every table, token-scoped guest RPCs, PII masking in logs, and validated writes on every public endpoint.
-
-### ⚡ Realtime Collaboration
-Orders, menu availability, table states, waitlist, reservations, and feedback stream over WebSockets. Every open tab stays in sync without a refresh.
+</p>
 
 ---
 
-## 🔄 System Workflow
+### 🚀 Built for Vibeathon 6.0
+
+An AI-powered Smart Restaurant Management Platform that unifies reservations, QR ordering, kitchen operations, billing, analytics, and AI decision support into a single real-time operating system.
+
+🌐 **Live Demo**
+
+https://rhythm-restaurant-two.vercel.app/
+
+💻 **GitHub Repository**
+
+https://github.com/YogananthJ/Restaurant_Nerve_Center
+
+</div>
+
+---
+
+# 📌 Project Information
+
+| Property | Details |
+|----------|---------|
+| **Project Name** | Restaurant Nerve Center (Occupancy) |
+| **Team Name** | Zoriks |
+| **Team Leader** | Yogananth J |
+| **Problem Statement** | AI-Powered Smart Restaurant Management System |
+| **Competition** | Vibeathon 6.0 |
+| **Project Status** | Beta |
+| **Developer** | Yogananth J |
+| **Deployment** | Vercel |
+
+---
+
+# 📖 About The Project
+
+Restaurant Nerve Center (**Occupancy**) is an AI-powered Smart Restaurant Management System designed to digitize and automate every critical restaurant operation through a single intelligent platform.
+
+Traditional restaurants rely on multiple disconnected systems for reservations, kitchen operations, billing, inventory, analytics, customer management, and reporting. These isolated tools create communication gaps, operational delays, manual errors, and poor customer experiences.
+
+Occupancy eliminates these inefficiencies by acting as the restaurant's central operating system. Every department—from customers and waiters to kitchen staff and managers—works on the same live data source in real time.
+
+The platform combines real-time synchronization, AI-powered insights, restaurant analytics, QR ordering, kitchen display management, reservations, billing, and predictive intelligence into one unified ecosystem.
+
+Instead of merely recording restaurant activities, Occupancy continuously understands restaurant operations, predicts potential problems, and assists managers with intelligent recommendations to improve efficiency, revenue, and customer satisfaction.
+
+---
+
+# 🎯 Problem Statement
+
+Modern restaurants often struggle with fragmented operational systems.
+
+Common challenges include:
+
+- Multiple disconnected software platforms
+- Manual order coordination
+- Delayed kitchen communication
+- Long customer waiting times
+- Poor inventory visibility
+- Inefficient reservation handling
+- Limited business analytics
+- Lack of AI-assisted decision making
+- Human errors during peak hours
+- Slow billing workflows
+
+These problems directly impact customer satisfaction, operational efficiency, and restaurant profitability.
+
+Occupancy addresses these challenges by creating one intelligent platform where every restaurant operation works together seamlessly.
+
+---
+
+# 💡 Solution
+
+Occupancy transforms restaurant management by providing a fully integrated AI-powered operating system.
+
+The platform enables:
+
+- Real-time QR ordering
+- Smart reservations
+- Kitchen Display System (KDS)
+- AI Restaurant Copilot
+- AI Demand Forecasting
+- Revenue Analytics
+- Billing & Payment Management
+- Live Restaurant Dashboard
+- Staff Management
+- Intelligent Reporting
+- Operational Insights
+
+Every module shares the same real-time database, ensuring that customers, kitchen staff, waiters, and managers always work with synchronized information.
+
+---
+
+# ⭐ Key Highlights
+
+- 🤖 AI-powered Restaurant Copilot
+- ⚡ Real-time synchronization
+- 🍽 QR Menu Ordering
+- 📅 Smart Reservation System
+- 👨‍🍳 Kitchen Display System
+- 💳 Billing & Payments
+- 📊 Business Analytics Dashboard
+- 📈 AI Demand Forecasting
+- 📱 Mobile Responsive UI
+- 🔒 Secure Authentication
+- 🌐 Cloud Hosted
+- ⚙️ Scalable Architecture
+
+---
+
+# 📸 Project Preview
+
+> Replace these placeholders with actual screenshots after uploading them.
+
+| Module | Screenshot |
+|---------|------------|
+| Landing Page | `assets/landing.png` |
+| Dashboard | `assets/dashboard.png` |
+| Kitchen Display | `assets/kitchen.png` |
+| Billing | `assets/billing.png` |
+| Analytics | `assets/analytics.png` |
+| AI Copilot | `assets/copilot.png` |
+| Reservations | `assets/reservations.png` |
+| QR Ordering | `assets/qr-ordering.png` |
+
+---
+
+# 🎥 Demo
+
+| Resource | Link |
+|----------|------|
+| Live Demo | https://rhythm-restaurant-two.vercel.app/ |
+| GitHub Repository | https://github.com/YogananthJ/Restaurant_Nerve_Center |
+
+
+---
+# ✨ Features
+
+Occupancy is designed as a complete AI-powered Restaurant Operating System where every module communicates in real-time.
+
+---
+
+## 🍽 Customer Experience
+
+Transform the dining experience with a seamless digital journey.
+
+### Features
+
+- QR Menu Ordering
+- Digital Menu
+- Live Menu Availability
+- AI Food Recommendations
+- Favorites & Recently Ordered
+- Dietary Filters
+- Order Tracking
+- Live Kitchen Status
+- Secure Checkout
+- Digital Receipt
+- Customer Feedback
+- Reservation Booking
+
+---
+
+## 👨‍🍳 Kitchen Display System (KDS)
+
+Built for high-speed restaurant kitchens.
+
+### Features
+
+- Real-time Incoming Orders
+- Placed → Preparing → Ready Workflow
+- Live Order Queue
+- Color-coded Order Status
+- One-click Status Updates
+- Kitchen Performance Metrics
+- Preparation Time Tracking
+- Order Prioritization
+
+---
+
+## 🏢 Restaurant Operations
+
+Everything a restaurant manager needs from a single dashboard.
+
+### Features
+
+- Live Floor Monitoring
+- Table Management
+- Reservation Management
+- Occupancy Tracking
+- Waitlist Handling
+- Staff Dashboard
+- Customer Queue
+- Revenue Overview
+- Live Notifications
+
+---
+
+## 💳 Billing & Payments
+
+Designed for fast restaurant billing.
+
+### Features
+
+- Order Billing
+- Tax Calculation
+- Discount Handling
+- Coupon Support
+- Payment Tracking
+- Digital Receipts
+- Sales Reports
+- Revenue Synchronization
+
+---
+
+## 📊 Business Intelligence
+
+Make data-driven business decisions.
+
+### Features
+
+- Revenue Analytics
+- Sales Reports
+- Best Selling Items
+- Peak Hours Analysis
+- Customer Insights
+- Daily Reports
+- Monthly Reports
+- Restaurant Performance Dashboard
+
+---
+
+## 🤖 AI Intelligence
+
+Occupancy is more than software.
+
+It acts as an intelligent restaurant assistant.
+
+### AI Features
+
+- AI Restaurant Copilot
+- Demand Forecasting
+- Business Insights
+- Restaurant Health Score
+- AI Recommendations
+- Intelligent Alerts
+- Predictive Analytics
+- Shift Summary
+- AI Decision Support
+
+---
+
+# 🏗 System Architecture
 
 ```text
-Guest scans QR
-   → live menu (dietary filters, favorites, AI picks)
-   → places order
-   → kitchen ticket appears instantly on KDS
-   → cook advances stage → guest tracker updates live
-   → manager dashboard reflects revenue + table state
-   → AI copilot analyzes the floor, flags risks, proposes actions
-   → order closed → payment recorded → receipt generated
-   → guest submits rating → sentiment feeds Intel Center
-   → nightly analytics + shift brief prepared for next service
+                        Customer
+                            │
+                            ▼
+                   QR Menu Ordering
+                            │
+                            ▼
+────────────────────────────────────────────────────
+
+                    React Frontend
+          (TypeScript + Tailwind CSS)
+
+────────────────────────────────────────────────────
+                            │
+                            ▼
+
+                 Server Functions / API
+
+────────────────────────────────────────────────────
+                            │
+                            ▼
+
+           Supabase Backend + PostgreSQL
+
+────────────────────────────────────────────────────
+          │               │               │
+          ▼               ▼               ▼
+
+ Authentication      Realtime      File Storage
+
+────────────────────────────────────────────────────
+                            │
+                            ▼
+
+                    Google Gemini AI
+
+────────────────────────────────────────────────────
+                            │
+                            ▼
+
+          AI Insights • Forecasting • Copilot
+
 ```
 
 ---
 
-## 🧠 AI Capabilities
-
-| Capability | Why it exists |
-|---|---|
-| **Ops Copilot** | Managers shouldn't have to query a database mid-service. Ask in plain English, get a grounded answer from a live snapshot. |
-| **Predictive Analytics** | Staffing and prep decisions are made *before* the rush, not during it. Forecasts next-hour revenue, kitchen load, and queue. |
-| **Health Score** | A single 0–100 number turns dozens of signals into an at-a-glance state of the restaurant, with per-signal contributions so it's never a black box. |
-| **Recommendations** | Guests order faster and spend more when the menu meets them where they are — time of day, dietary needs, past orders, trending items. |
-| **Incident Detection** | Problems (stale tickets, low menu coverage, long waits) are surfaced with root cause and business impact before a guest complains. |
-| **Shift Brief** | End-of-shift context transfer is where information dies. The AI writes a Numbers / Wins / Watch-outs handoff automatically. |
-| **Restaurant Memory** | A queryable timeline of the service — what happened, when, and why — so post-mortems take minutes, not meetings. |
-| **Digital Twin** | Test decisions ("close two tables", "86 the risotto", "add a cook") against a live simulation before committing them to the floor. |
-| **Risk Radar** | Probability-scored predictions with ETA and suggested intervention — the difference between reacting and preventing. |
-| **Autopilot** | Continuously watches the floor and proposes ranked, explainable actions. Nothing runs without a human tap. |
-
----
-
-## 🏗 Architecture
+# 🔄 End-to-End Workflow
 
 ```text
-┌─────────────────────────────────────────────────────────┐
-│  React 19 + TanStack Start (SSR, file-based routing)    │  Frontend
-└──────────────┬──────────────────────────┬───────────────┘
-               │ server functions         │ realtime (WS)
-               ▼                          ▼
-┌───────────────────────────┐   ┌────────────────────────┐
-│  TanStack Server Fns      │   │  Realtime Engine        │
-│  (typed RPC, edge worker) │   │  (Postgres → WS fanout) │
-└──────────┬────────────────┘   └────────────┬───────────┘
-           │                                 │
-           ▼                                 ▼
-┌─────────────────────────────────────────────────────────┐
-│  Postgres + RLS + SECURITY DEFINER RPCs                 │  Data
-│  Auth (email + Google OAuth, JWT claims)                │
-└──────────────┬──────────────────────────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────────────────────────┐
-│  AI Gateway → Gemini 2.5 Flash (JSON-mode reasoning)    │  Intelligence
-└─────────────────────────────────────────────────────────┘
-```
+Customer
 
-- **Frontend** renders SSR from the edge and hydrates with React 19.
-- **Server functions** enforce auth via middleware and call the DB with the user's JWT so RLS applies.
-- **Realtime** streams row changes directly to subscribed clients.
-- **AI layer** is invoked from server functions with a curated snapshot — never raw user input.
+     │
+
+Scan QR Code
+
+     │
+
+Browse Digital Menu
+
+     │
+
+Add Food Items
+
+     │
+
+Place Order
+
+     │
+
+──────────────────────────────────
+
+Kitchen Display
+
+     │
+
+Placed
+
+     │
+
+Preparing
+
+     │
+
+Ready
+
+     │
+
+──────────────────────────────────
+
+Waiter
+
+     │
+
+Serve Food
+
+     │
+
+──────────────────────────────────
+
+Billing
+
+     │
+
+Payment
+
+     │
+
+Receipt
+
+     │
+
+──────────────────────────────────
+
+Restaurant Dashboard
+
+     │
+
+Analytics Updated
+
+     │
+
+AI Analysis
+
+     │
+
+Business Reports
+
+```
 
 ---
 
-## 🛠 Tech Stack
+# 🤖 Artificial Intelligence
 
-| Layer | Choice |
-|---|---|
-| Frontend | React 19, TanStack Start, TanStack Router, TanStack Query |
-| Styling | Tailwind CSS v4, shadcn/ui, OKLCH design tokens |
-| Backend | TanStack server functions (edge worker) |
-| Database | Postgres (Lovable Cloud / Supabase) |
-| Auth | Supabase Auth (Email + Google OAuth), JWT claims, RBAC via `user_roles` |
-| Realtime | Supabase Realtime (Postgres logical replication → WebSockets) |
-| AI | Lovable AI Gateway · Google Gemini 2.5 Flash (JSON mode) |
+Occupancy integrates Artificial Intelligence throughout restaurant operations instead of limiting AI to a chatbot.
+
+---
+
+## 🧠 AI Restaurant Copilot
+
+Managers can ask operational questions in natural language.
+
+Examples
+
+- Which table has waited the longest?
+- Which food item is selling the most?
+- Which orders are delayed?
+- Show today's revenue.
+- Which table needs attention?
+
+---
+
+## 📈 Demand Forecasting
+
+AI predicts:
+
+- Expected Orders
+- Restaurant Rush Hours
+- Revenue
+- Kitchen Load
+- Customer Traffic
+
+---
+
+## 📊 Restaurant Health Score
+
+AI continuously evaluates restaurant performance.
+
+Factors include:
+
+- Kitchen Performance
+- Waiting Time
+- Revenue
+- Occupancy
+- Customer Satisfaction
+- Order Completion
+
+---
+
+## 🚨 Intelligent Alerts
+
+The AI proactively detects issues such as:
+
+- Delayed Orders
+- Kitchen Bottlenecks
+- Low Sales
+- Inventory Risks
+- Customer Waiting Time
+
+---
+
+## 🎯 AI Recommendations
+
+Examples
+
+- Recommend popular dishes
+- Suggest staffing adjustments
+- Improve table utilization
+- Reduce waiting time
+- Increase revenue opportunities
+
+---
+
+# 📦 Core Modules
+
+| Module | Description |
+|----------|-------------|
+| Landing Page | Product showcase |
+| Authentication | Secure Login & Signup |
+| Dashboard | Restaurant Overview |
+| Floor Management | Live Table Monitoring |
+| Kitchen Display System | Kitchen Workflow |
+| QR Ordering | Digital Ordering |
+| Reservations | Smart Table Booking |
+| Billing | Payments & Receipts |
+| Analytics | Business Intelligence |
+| Reports | Revenue Reports |
+| AI Copilot | AI Assistant |
+| Demand Forecasting | AI Predictions |
+| Notifications | Live Updates |
+| Settings | Restaurant Configuration |
+
+---
+
+# ⚡ Real-Time Features
+
+Occupancy uses real-time synchronization to keep every department connected.
+
+### Live Updates
+
+✅ New Orders
+
+✅ Kitchen Status
+
+✅ Table Occupancy
+
+✅ Reservation Updates
+
+✅ Billing Status
+
+✅ Customer Feedback
+
+✅ Analytics
+
+✅ Notifications
+
+### Benefits
+
+- No page refresh required
+- Instant synchronization
+- Reduced operational delay
+- Better communication
+- Improved customer experience
+- Faster restaurant operations
+
+---
+
+# 🌍 Real-World Impact
+
+Occupancy helps restaurants:
+
+- Reduce waiting time
+- Improve kitchen efficiency
+- Increase table turnover
+- Minimize human errors
+- Improve customer satisfaction
+- Increase operational transparency
+- Make AI-assisted decisions
+- Improve revenue through intelligent insights
+
+---
+# 🛠 Technology Stack
+
+Occupancy is built using a modern, scalable, cloud-native technology stack.
+
+| Layer | Technology |
+|--------|------------|
+| Frontend | React 19 |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| UI Components | shadcn/ui |
+| State Management | TanStack Query |
+| Routing | TanStack Router |
+| Backend | Supabase |
+| Database | PostgreSQL |
+| Authentication | Supabase Auth + Google OAuth |
+| Realtime | Supabase Realtime |
+| Artificial Intelligence | Google Gemini |
 | Charts | Recharts |
-| PDF / QR | jsPDF, qrcode.react |
-| Deployment | Edge runtime (Cloudflare Workers) via Lovable |
+| QR Generation | qrcode.react |
+| PDF Generation | jsPDF |
+| Deployment | Vercel |
+| Version Control | GitHub |
+| Testing | Playwright |
 
 ---
 
-## 📦 Core Modules
-
-| Module | Purpose | Main Features | Users |
-|---|---|---|---|
-| **Landing** | Convert visitors, showcase product | Live floor mockup, KDS preview, AI preview, session-aware CTAs | Everyone |
-| **Dashboard** | Live floor control | Table map, orders, menu 86, KPIs, close-out, reservations panel | Manager |
-| **Kitchen Display** | Ticket workflow | 3-stage board, one-tap advance, auto table sync, KPI overlay | Kitchen |
-| **Host Panel** | Door + waitlist + arrivals | Walk-in queue, party-size suggestions, one-tap seat, reservation check-in | Host |
-| **Reservations** | Public booking | Datetime + party size, capacity check, instant confirmation code | Guest |
-| **Reports** | Sales intelligence | Weekly/monthly/yearly, product mix, seasonal, CSV export | Manager |
-| **Autopilot** | AI operating system | Health score, action cards, risk radar, digital twin, emergency mode | Manager |
-| **Intel Center** | Live analytics + AI feed | Health score with reasons, incidents, replay, guest sentiment | Manager |
-| **Ops Copilot** | Chat + shift brief | Grounded Q&A, 24h analytics, AI handoff | Manager |
-| **Menu Manager** | Full menu CRUD | Categories, dietary tags, 86-toggle, search | Manager |
-| **QR Ordering** | Guest menu + cart | Realtime menu, dietary filters, favorites, upsells | Guest |
-| **Guest Tracking** | Live order status | 4-stage tracker, post-meal rating + comment | Guest |
-| **Billing** | Revenue hub | Split / merge orders, coupons, payments, PDF receipts | Manager |
-
----
-
-## ⚡ Realtime Features
-
-| Stream | What syncs live |
-|---|---|
-| Orders | Placement, stage advance, close-out |
-| Kitchen | Ticket state across every KDS device |
-| Menu Availability | 86 toggles propagate to guest menus instantly |
-| Tables | Status changes (open / seated / cleaning) |
-| Reservations | Booking, confirmation, seating, audit log |
-| Waitlist | Party added, notified, seated |
-| Feedback | New guest ratings + comments |
-| Analytics | Auto-refresh on any qualifying event |
-
----
-
-## 🔒 Security
-
-- **RBAC** via `user_roles` table + `has_role()` security-definer function — never stored on profile.
-- **Row Level Security** enabled on every public table; policies gated by role.
-- **Guest Token Access** — no anon reads on orders/tables. Guests hit `resolve_table_by_qr` and `get_guest_order` RPCs that validate access tokens server-side.
-- **Input Validation** — Zod on every server function; capped quantities/prices; freshness checks on public inserts.
-- **Secure RPCs** — SECURITY DEFINER with pinned `search_path`; EXECUTE revoked from anon on internal functions.
-- **Audit Logs** — `reservation_events` records every create/update/delete with actor + diff.
-- **PII Protection** — auth debug log masks emails and stores a stable short hash for correlation without exposing addresses.
-
----
-
-## 📈 Scalability
-
-| Scale | How it works |
-|---|---|
-| **Single restaurant** | Single tenant row; edge-rendered SSR handles all traffic with zero cold start. |
-| **Multiple branches** | Restaurants are first-class rows; every domain table is `restaurant_id`-scoped and RLS-partitioned. Add a location by inserting a row. |
-| **Franchise chains** | Roles compose vertically (chain admin → region manager → store manager); analytics roll up via SQL views without schema changes. |
-
-Realtime fanout is per-channel, so adding branches doesn't multiply subscription cost linearly on any single client.
-
----
-
-## 💡 Innovation
-
-- **AI-first, not AI-bolted-on** — the AI reasons over a curated live snapshot on every meaningful change, not from a chat prompt in isolation.
-- **Explainable Health Score** — every point of the 0–100 score traces back to a signal contribution. No black-box vibes.
-- **Digital Twin Simulator** — what-if the floor before you commit. Managers get to *rehearse* decisions.
-- **Autopilot with human-in-the-loop** — proposes, never executes. Confidence + estimated impact on every card.
-- **Live Intelligence, not dashboards** — the Intel Center reacts to the floor, not to a page refresh.
-- **Restaurant Memory** — the day the restaurant lived, as a queryable timeline.
-
----
-
-## 📁 Folder Structure
+# 📂 Project Structure
 
 ```text
-occupancy/
+Restaurant_Nerve_Center/
+
+├── public/
+│
 ├── src/
-│   ├── routes/                    # File-based routing (TanStack)
-│   │   ├── __root.tsx             # App shell + global auth listener
-│   │   ├── index.tsx              # Landing
-│   │   ├── auth.tsx               # Sign in / up + Google OAuth
-│   │   ├── book.tsx               # Public reservations
-│   │   ├── health.tsx             # System health probe
-│   │   ├── _authenticated/       # Staff-only subtree
-│   │   │   ├── dashboard.tsx
-│   │   │   ├── kds.tsx
-│   │   │   ├── host.tsx
-│   │   │   ├── menu.tsx
-│   │   │   ├── tables.tsx
-│   │   │   ├── ops.tsx
-│   │   │   ├── intel.tsx
-│   │   │   ├── autopilot.tsx
-│   │   │   ├── reports.tsx
-│   │   │   └── billing.tsx
-│   │   └── t/                     # Guest QR flow
-│   │       ├── $token.tsx
-│   │       └── $token.order.$orderId.tsx
-│   ├── lib/                       # Server functions + utilities
-│   │   ├── ai-ops.functions.ts
-│   │   ├── intel.functions.ts
-│   │   ├── autopilot.functions.ts
-│   │   ├── auth-log.ts
-│   │   ├── money.ts
-│   │   └── receipt.ts
-│   ├── components/                # UI + feature components
-│   ├── hooks/                     # useAuth, useMobile, ...
-│   ├── integrations/supabase/     # Generated client + middleware
-│   └── styles.css                 # Tailwind v4 + design tokens
-├── supabase/                      # Migrations + config
-├── tests/e2e/                     # Playwright suites
+│   ├── assets/
+│   ├── components/
+│   ├── hooks/
+│   ├── lib/
+│   ├── pages/
+│   ├── routes/
+│   ├── services/
+│   ├── utils/
+│   ├── styles/
+│   └── App.tsx
+│
+├── supabase/
+│   ├── migrations/
+│   └── functions/
+│
+├── tests/
+│   └── e2e/
+│
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
 └── README.md
 ```
 
 ---
 
-## 🚀 Installation
+# ⚙️ Installation Guide
+
+Clone the repository
 
 ```bash
-# 1. Clone
-git clone <repo-url> occupancy && cd occupancy
-
-# 2. Install
-bun install       # or: npm install
-
-# 3. Configure environment
-cp .env.example .env
-# fill in the values below
-
-# 4. Run
-bun run dev
+git clone https://github.com/YogananthJ/Restaurant_Nerve_Center.git
 ```
 
----
-
-## 🔑 Environment Variables
-
-```dotenv
-# Public (safe in the browser)
-VITE_SUPABASE_URL="https://<project>.supabase.co"
-VITE_SUPABASE_PUBLISHABLE_KEY="sb_publishable_..."
-VITE_SUPABASE_PROJECT_ID="<project-id>"
-
-# Server-only
-SUPABASE_URL="https://<project>.supabase.co"
-SUPABASE_PUBLISHABLE_KEY="sb_publishable_..."
-SUPABASE_PROJECT_ID="<project-id>"
-
-# AI Gateway (server-only)
-LOVABLE_API_KEY="lov_..."
-```
-
----
-
-## 🧪 Running Locally
+Move into the project
 
 ```bash
-bun run dev          # start dev server on :8080
-bun run build        # production build
-bun run typecheck    # tsgo
-bunx vitest run      # unit tests
-python tests/e2e/auth_crosstab_all_routes.py   # e2e smoke
+cd Restaurant_Nerve_Center
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run development server
+
+```bash
+npm run dev
+```
+
+Create production build
+
+```bash
+npm run build
+```
+
+Preview production build
+
+```bash
+npm run preview
 ```
 
 ---
 
-## ☁️ Deployment
+# 🔑 Environment Variables
 
-Occupancy deploys to an edge runtime (Cloudflare Workers) via Lovable's hosting:
+Create a `.env` file in the project root.
 
-1. Push to the connected repository.
-2. The platform builds with Vite and bundles server functions for the Worker.
-3. Environment variables are injected server-side; public vars are inlined at build.
-4. Realtime and Auth are served by the managed Postgres/Supabase project.
+```env
+VITE_SUPABASE_URL=
 
-Stable URLs:
-- Production: `https://rhythm-restaurant.lovable.app`
-- Preview: automatic per-branch preview URL
+VITE_SUPABASE_ANON_KEY=
 
----
+VITE_GOOGLE_CLIENT_ID=
 
-## 🖼 Screenshots
+VITE_GEMINI_API_KEY=
+```
 
-| Surface | Preview |
-|---|---|
-| Landing Page | _[screenshot placeholder]_ |
-| Manager Dashboard | _[screenshot placeholder]_ |
-| Kitchen Display | _[screenshot placeholder]_ |
-| Reservations | _[screenshot placeholder]_ |
-| Intel Center | _[screenshot placeholder]_ |
-| Autopilot | _[screenshot placeholder]_ |
-| Reports | _[screenshot placeholder]_ |
-| QR Ordering | _[screenshot placeholder]_ |
+> Never commit API keys or secrets to GitHub.
 
 ---
 
-## 🗺 Future Roadmap
+# ☁️ Deployment
 
-- 🎙 **Voice Ordering** — guest and staff hands-free via Web Speech + LLM intent parsing
-- 📦 **Inventory Forecasting** — depletion prediction tied to menu availability
-- 🏢 **Multi-Branch Analytics** — chain-level rollups and cross-store benchmarks
-- 📈 **Demand Forecasting** — hour-by-hour cover predictions for staffing
-- 📱 **Native Mobile Apps** — dedicated iOS/Android for host and kitchen
-- 💳 **POS Integrations** — Square, Toast, Stripe Terminal
-- 🚚 **Supplier Automation** — auto-reorder from usage patterns
-- 🌡 **IoT Kitchen Sensors** — line temperature + prep-station telemetry into the Health Score
+The application is deployed using **Vercel**.
 
----
+### Live URL
 
-## 👥 Team
+https://rhythm-restaurant-two.vercel.app/
 
-| Member | Responsibility |
-|---|---|
-| _Team Lead_ | Product direction, architecture, AI systems |
-| _Frontend_ | UI, realtime UX, design system |
-| _Backend_ | Database, RLS, RPCs, security |
-| _AI / Data_ | Prompting, Intel Center, Autopilot |
+Deployment Steps
+
+1. Push project to GitHub.
+2. Import repository into Vercel.
+3. Configure environment variables.
+4. Deploy production build.
+5. Verify all authentication flows.
+6. Test every feature after deployment.
 
 ---
 
-## 🎬 Demo
+# 🔐 Authentication
 
-- **Live Demo:** https://rhythm-restaurant.lovable.app
-- **GitHub Repository:** _add link_
-- **Presentation:** _add link_
+The application supports secure authentication.
+
+## Supported Methods
+
+- Email Authentication
+- Google OAuth
+- Role-Based Access Control (RBAC)
+
+## User Roles
+
+- Customer
+- Restaurant Staff
+- Manager
+- Administrator
+
+Every user only has access to features permitted for their role.
 
 ---
 
-## 🏆 Why This Project Stands Out
+# 🗄 Database
 
-**Real-world impact.** Occupancy targets the operational dead zones every restaurant lives with — stale tickets, missed reservations, blind staffing, spreadsheet post-mortems — and replaces them with a single live surface.
+The project uses **PostgreSQL** through **Supabase**.
 
-**Technical complexity.** Edge-rendered SSR with TanStack Start, JWT-authenticated typed RPCs, row-level-secure Postgres, WebSocket realtime across every domain table, and a JSON-mode LLM pipeline that operates on curated live snapshots rather than raw prompts.
+Major entities include:
 
-**AI innovation.** Not a chatbot glued to a dashboard. The AI is a *reasoning layer* with explainable scoring, a digital twin, a risk radar, and an autopilot that proposes ranked, human-approved actions — with confidence and estimated impact on every card.
+- Users
+- Orders
+- Reservations
+- Tables
+- Menu
+- Billing
+- Inventory
+- Analytics
+- Feedback
 
-**User experience.** Every persona — guest, cook, host, manager — has a purpose-built surface. Guests scan and order in seconds. Cooks tap tickets. Managers see one number that means something, backed by traceable reasons.
+The database supports:
 
-**Scalability.** Multi-tenant by construction. A single migration turns one restaurant into a chain.
+- Row Level Security (RLS)
+- Realtime Synchronization
+- Authentication
+- Secure API Access
 
-**Business value.** Faster tables, fewer 86'd surprises, higher average tickets from AI upsells, fewer no-shows from confirmed reservations, and a manager who spends the shift *on the floor* — not in a spreadsheet.
+---
 
-Occupancy isn't a POS. It's the operating system restaurants have been missing.
+# 🔄 Realtime Synchronization
+
+Occupancy updates data instantly across all connected devices.
+
+Realtime events include:
+
+- New Orders
+- Kitchen Status
+- Reservation Updates
+- Billing Updates
+- Table Availability
+- Customer Notifications
+- Analytics Refresh
+
+Benefits
+
+- Zero manual refresh
+- Faster communication
+- Improved customer experience
+- Live restaurant monitoring
+
+---
+
+# 🧪 Testing Strategy
+
+The project is tested using both manual and automated testing.
+
+## Manual Testing
+
+- Homepage
+- Authentication
+- Dashboard
+- Reservations
+- Kitchen
+- Billing
+- Analytics
+- AI Copilot
+- QR Ordering
+
+---
+
+## Automated Testing
+
+Playwright is used for end-to-end testing.
+
+Current automated test suites include:
+
+- Smoke Testing
+- Homepage Verification
+- Demo Login
+- Floor Dashboard
+
+Future test coverage includes:
+
+- Kitchen Workflow
+- Billing
+- Reservations
+- Analytics
+- AI Features
+- Regression Testing
+
+Run Playwright tests
+
+```bash
+npx playwright test
+```
+
+Generate HTML Report
+
+```bash
+npx playwright show-report
+```
+
+---
+
+# 📱 Responsive Design
+
+Occupancy is designed to work across multiple devices.
+
+Supported devices
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+Responsive layouts ensure a consistent experience for customers and restaurant staff.
+
+---
+
+# ⚡ Performance
+
+Performance optimizations include:
+
+- Lazy Loading
+- Component Reuse
+- Optimized API Calls
+- Efficient Database Queries
+- Real-time Event Streaming
+- Lightweight UI Components
+- Modern React Rendering
+
+---
+
+# 🛡 Security
+
+Security has been considered throughout the application.
+
+Implemented security features include:
+
+- Authentication
+- Authorization
+- Role-Based Access Control
+- Secure API Calls
+- Input Validation
+- Protected Routes
+- Environment Variables
+- Database Security
+- Session Management
+
+---
+
+# 📈 Scalability
+
+The platform is designed for future growth.
+
+Potential expansion includes:
+
+- Multi-Branch Restaurants
+- Franchise Management
+- Multi-Tenant Support
+- Cloud Scaling
+- AI Model Expansion
+- POS Integration
+- Payment Gateway Integration
+- IoT Kitchen Devices
+
+---
+
+# 💼 Business Value
+
+Occupancy helps restaurants:
+
+- Increase operational efficiency
+- Improve customer experience
+- Reduce manual work
+- Improve kitchen communication
+- Increase revenue
+- Improve staff coordination
+- Enable AI-assisted decision making
+- Reduce operational costs
+
+---
+# 💡 Innovation
+
+Occupancy is designed as an **AI-first Restaurant Operating System**, not simply another restaurant management application.
+
+Unlike traditional restaurant software that separates reservations, kitchen operations, billing, analytics, and customer engagement into disconnected systems, Occupancy unifies every workflow into a single intelligent platform.
+
+## Key Innovations
+
+### 🤖 AI Restaurant Copilot
+
+An intelligent assistant that helps restaurant managers make operational decisions using real-time restaurant data.
+
+---
+
+### ⚡ Real-Time Restaurant Operations
+
+Every department stays synchronized instantly.
+
+- Kitchen
+- Billing
+- Reservations
+- Orders
+- Tables
+- Analytics
+
+No manual refreshes.
+
+---
+
+### 📊 Intelligent Business Insights
+
+The system continuously analyzes restaurant operations and provides actionable insights instead of simply displaying reports.
+
+---
+
+### 🍽 Smart Digital Dining
+
+Customers can:
+
+- Scan QR
+- Browse Menu
+- Place Orders
+- Track Food Status
+- Pay Digitally
+- Leave Feedback
+
+without requiring assistance from staff.
+
+---
+
+### 📈 AI Decision Support
+
+Managers receive intelligent recommendations for:
+
+- Improving sales
+- Managing demand
+- Reducing delays
+- Optimizing restaurant performance
+
+instead of relying solely on historical reports.
+
+---
+
+# 🎯 Alignment with Vibeathon Problem Statement
+
+This project addresses the major operational challenges highlighted in the Smart Restaurant Management System problem statement.
+
+| Challenge | Occupancy Solution |
+|------------|-------------------|
+| Long waiting times | Smart reservations and live table management |
+| Manual order handling | QR ordering with real-time synchronization |
+| Kitchen delays | Kitchen Display System |
+| Billing inefficiencies | Digital billing workflow |
+| Poor analytics | Business Intelligence Dashboard |
+| Customer experience | AI-powered recommendations |
+| Operational insights | AI Copilot and Analytics |
+| Staff coordination | Unified real-time dashboard |
+
+---
+
+# 🚀 Future Roadmap
+
+Future enhancements planned for Occupancy include:
+
+## AI
+
+- Voice-based Restaurant Assistant
+- AI Inventory Forecasting
+- AI Revenue Prediction
+- AI Staff Scheduling
+- AI Customer Sentiment Analysis
+
+---
+
+## Restaurant Operations
+
+- Multi-Branch Management
+- Franchise Dashboard
+- POS Integration
+- Supplier Management
+- Inventory Automation
+
+---
+
+## Customer Experience
+
+- Loyalty Program
+- Digital Wallet
+- Personalized Offers
+- Smart Notifications
+- Table-side Payments
+
+---
+
+## Technology
+
+- Native Android Application
+- Native iOS Application
+- Offline Mode
+- Edge AI Processing
+- Advanced Analytics
+
+---
+
+# 🏆 Achievements
+
+Current project highlights:
+
+- AI-Powered Restaurant Operating System
+- Real-Time Synchronization
+- Cloud Deployment
+- QR Ordering
+- Kitchen Display System
+- Smart Reservations
+- Billing Management
+- Business Analytics
+- AI Copilot
+- Responsive User Interface
+
+---
+
+# 👨‍💻 Developer
+
+## Yogananth J
+
+**Team Leader — Team Zoriks**
+
+Responsibilities
+
+- Product Design
+- Full Stack Development
+- UI / UX Design
+- AI Integration
+- Database Design
+- Authentication
+- Backend Development
+- Testing
+- Deployment
+- Documentation
+
+---
+
+# 📖 Learning Outcomes
+
+This project provided practical experience in:
+
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- PostgreSQL
+- Authentication
+- Realtime Applications
+- Artificial Intelligence
+- Full Stack Development
+- Cloud Deployment
+- End-to-End Testing
+- Software Architecture
+
+---
+
+# 🤝 Acknowledgements
+
+Special thanks to:
+
+- Vibeathon 6.0
+- NXTGENSEC
+- React Community
+- Supabase
+- Google Gemini
+- Tailwind CSS
+- Open Source Community
+
+for providing the tools, resources, and inspiration that helped make this project possible.
+
+---
+
+# ⭐ Why Occupancy Stands Out
+
+Occupancy is not intended to replace an existing Point of Sale (POS) system.
+
+Instead, it acts as a unified operational platform that connects every stage of restaurant operations into a single intelligent ecosystem.
+
+It combines:
+
+- Customer Experience
+- Restaurant Operations
+- Kitchen Management
+- AI Decision Support
+- Business Analytics
+- Real-Time Synchronization
+
+to help restaurants improve operational efficiency while delivering a better dining experience.
+
+---
+
+# 📞 Contact
+
+### Developer
+
+**Yogananth J**
+
+GitHub
+
+https://github.com/YogananthJ/Restaurant_Nerve_Center
+
+Live Demo
+
+https://rhythm-restaurant-two.vercel.app/
+
+---
+
+# 📜 License
+
+This project was developed as part of **Vibeathon 6.0** for educational, innovation, and demonstration purposes.
+
+---
+
+<div align="center">
+
+# ⭐ Thank You
+
+### Thank you for taking the time to review Occupancy.
+
+We hope this project demonstrates how Artificial Intelligence, Real-Time Systems, and Modern Web Technologies can transform restaurant operations into a smarter, faster, and more connected experience.
+
+**Built with ❤️ for Vibeathon 6.0**
+
+</div>
