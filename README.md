@@ -187,6 +187,19 @@ Transform the dining experience with a seamless digital journey.
 - Reservation Booking
 
 ---
+## 🏆 Innovation Highlights
+
+Occupancy is designed as a Restaurant Experience Platform instead of only a Restaurant Management System.
+
+Key innovations include:
+
+- AI-powered Restaurant Assistant
+- QR Ordering
+- Loyalty Rewards Hub
+- Interactive Customer Journey
+- Business Analytics
+- Modern Restaurant UI
+- Customer Engagement Features
 
 ## 👨‍🍳 Kitchen Display System (KDS)
 
@@ -204,6 +217,24 @@ Built for high-speed restaurant kitchens.
 - Order Prioritization
 
 ---
+## 🎁 Occupancy Rewards
+
+Occupancy Rewards is a customer engagement system designed to increase repeat visits and improve customer loyalty.
+
+Features include:
+
+- Daily Reward Spin
+- Reward Store
+- Loyalty Badges
+- Reward Wallet
+- Membership Levels
+- Birthday Rewards
+- Exclusive Coupons
+- Reward History
+- Daily Missions
+- VIP Benefits
+
+The system is inspired by real-world restaurant loyalty programs such as Starbucks Rewards and McDonald's Rewards.
 
 ## 🏢 Restaurant Operations
 
