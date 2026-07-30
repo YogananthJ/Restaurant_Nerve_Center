@@ -529,7 +529,7 @@ The AI Copilot analyzes live operational data—including orders, reservations, 
 - Actionable business insights
 - Better customer experience
 - Data-driven management
-```
+
 
 # 📦 Core Modules
 
