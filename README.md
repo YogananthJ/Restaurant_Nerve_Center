@@ -51,6 +51,13 @@ https://github.com/YogananthJ/Restaurant_Nerve_Center
 | **Deployment** | Vercel |
 
 ---
+# 🌐 Hosted Application
+
+**Production URL**
+
+👉 https://rhythm-restaurant-two.vercel.app/
+
+The application is deployed on **Vercel** and demonstrates the complete restaurant management workflow, including QR ordering, reservations, kitchen operations, billing, analytics, and AI-powered insights.
 
 # 📖 About The Project
 
@@ -269,6 +276,27 @@ It acts as an intelligent restaurant assistant.
 - AI Decision Support
 
 ---
+# 👥 User Stories Completed
+
+The following user stories have been successfully implemented in Occupancy.
+
+| User Role | User Story | Status |
+|------------|------------|--------|
+| Customer | Scan a QR code to access the digital menu | ✅ |
+| Customer | Browse menu items | ✅ |
+| Customer | Place food orders | ✅ |
+| Customer | Track order status | ✅ |
+| Customer | Make table reservations | ✅ |
+| Restaurant Staff | Manage incoming orders | ✅ |
+| Kitchen Staff | View orders in Kitchen Display System | ✅ |
+| Kitchen Staff | Update order status (Placed → Preparing → Ready) | ✅ |
+| Cashier | Generate bills and manage payments | ✅ |
+| Manager | Monitor restaurant dashboard | ✅ |
+| Manager | View reservations and occupancy | ✅ |
+| Manager | View analytics and reports | ✅ |
+| Manager | Receive AI-powered insights | ✅ |
+| Administrator | Manage restaurant operations | ✅ |
+
 
 # 🏗 System Architecture
 
@@ -473,6 +501,35 @@ Examples
 - Increase revenue opportunities
 
 ---
+# 🤖 AI Usage
+
+Occupancy leverages Artificial Intelligence to enhance restaurant operations and decision-making.
+
+### AI Model
+
+- Google Gemini
+
+### AI Features
+
+- AI Restaurant Copilot
+- Intelligent business insights
+- Restaurant performance analysis
+- Operational recommendations
+- Revenue and occupancy insights
+- Decision support for managers
+
+### How AI is Used
+
+The AI Copilot analyzes live operational data—including orders, reservations, occupancy, and business metrics—to generate contextual insights and recommendations for restaurant managers. This helps improve operational efficiency, identify bottlenecks, and support faster, data-driven decisions.
+
+### Benefits
+
+- Faster operational decisions
+- Improved restaurant efficiency
+- Actionable business insights
+- Better customer experience
+- Data-driven management
+```
 
 # 📦 Core Modules
 
