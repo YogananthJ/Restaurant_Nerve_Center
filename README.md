@@ -46,7 +46,6 @@ https://github.com/YogananthJ/Restaurant_Nerve_Center
 | **Team Leader** | Yogananth J |
 | **Problem Statement** | AI-Powered Smart Restaurant Management System |
 | **Competition** | Vibeathon 6.0 |
-| **Project Status** | Beta |
 | **Developer** | Yogananth J |
 | **Deployment** | Vercel |
 
